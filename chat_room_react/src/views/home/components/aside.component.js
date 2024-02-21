@@ -244,7 +244,7 @@ export default function AsideComponent(props) {
             onBlur={() => {}}
             // end
           >
-            {status === "0" ? "User Information" : "Search List"}      //"用户信息" : "搜索列表"
+            {status === "0" ? "User Information" : "Search List"}    //"用户信息" : "搜索列表"
           </div>
         }
         open={open}
@@ -290,8 +290,8 @@ export default function AsideComponent(props) {
                     okText="OK"         //确认
                     cancelText="Cancel"     //取消
                   >
-                    <Button type="primary" size="small">
-                      Friend Request         //申请好友
+                    <Button type="primary" size="small">   //申请好友
+                      Friend Request         
                     </Button>
                   </Popconfirm>
                 }
