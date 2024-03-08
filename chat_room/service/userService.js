@@ -10,7 +10,7 @@ module.exports = {
       if (result.code == 0) {
         return {
           code: 0,
-          msg: "成功",
+          msg: "Success",
           data: result.rows,
         };
       } else {
@@ -20,7 +20,7 @@ module.exports = {
       console.log(error)
       reutrn({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -37,7 +37,7 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -53,7 +53,7 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -70,7 +70,7 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -88,7 +88,7 @@ module.exports = {
         console.log(error)
       reutrn({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -105,7 +105,7 @@ module.exports = {
         console.log(error)
       reutrn({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -122,7 +122,7 @@ module.exports = {
         console.log(error)
       retrun({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -144,7 +144,7 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -165,7 +165,7 @@ module.exports = {
       console.log(error)
      return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -181,7 +181,7 @@ module.exports = {
       console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -197,7 +197,7 @@ module.exports = {
       console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -212,7 +212,7 @@ module.exports = {
       console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
