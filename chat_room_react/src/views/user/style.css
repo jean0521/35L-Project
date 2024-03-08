@@ -1,30 +1,30 @@
-.containerLogin{
-    width: 100vw;
-    height: 100vh;
-    background-color: #5ab0ff;
-    position: relative;
+.containerLogin {
+  width: 100vw;
+  height: 100vh;
+  background-color: #5ab0ff;
+  position: relative;
 }
-.containerLogin .box{
-    width: 400px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.containerLogin .box {
+  width: 600px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.containerLogin .box h2{
-    text-align: center;
-    margin-bottom: 20px;
+.containerLogin .box h1 {
+  text-align: left;
+  margin-bottom: 30px;
 }
-.z_btn{
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    background: #5ab0ff;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
+.z_btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background: #5ab0ff;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
 }

@@ -27,7 +27,7 @@ export default function UserLogin() {
           messageApi.open({
             key,
             type: "success",
-            content: "Login Successfully!",  //登录成功!
+            content: "Logging successfully!",
             duration: 1,
             onClose() {
               navigate('/home')
@@ -52,7 +52,7 @@ export default function UserLogin() {
     <div className=" containerLogin">
       {contextHolder}
       <div className="login box">
-        <h2>Login</h2>    //在这里登录
+        <h1>Sign in</h1>
         <Form
           name="basic"
           labelCol={{
@@ -72,12 +72,12 @@ export default function UserLogin() {
           autoComplete="off"
         >
           <Form.Item
-            label="Username"  //用户名
+            label="Username"
             name="username"
             rules={[
               {
                 required: true,
-                message: "Please Enter Username",   //请输入用户名
+                message: "Enter your username",
               },
             ]}
           >
@@ -85,12 +85,12 @@ export default function UserLogin() {
           </Form.Item>
 
           <Form.Item
-            label="Password"  //密码
+            label="Password"
             name="password"
             rules={[
               {
                 required: true,
-                message: "Please Enter Password",  //请输入密码
+                message: "Enter your password",
               },
             ]}
           >
@@ -104,17 +104,13 @@ export default function UserLogin() {
             }}
           >
             <Button type="primary" htmlType="submit" className="z_btn">
-              Login    //登录
+              CONTINUE
             </Button>
           </Form.Item>
           <Form.Item
             style={{ margin: "0px!important" }}
-            wrapperCol={{
-              offset: 15,
-              span: 9,
-            }}
-          >
-            <Link to={"/user/register"}>No Account? Register Here</Link>    //没有账户？前去创建
+          >No account? 
+            <Link to={"/user/register"}> Sign up</Link>
           </Form.Item>
         </Form>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Checkbox,message, Form, Input } from 'antd';
+import { Button, Checkbox, message, Form, Input } from 'antd';
 import { Link } from "react-router-dom";
 import './style.css'
 import api from "../../http/api";
@@ -23,7 +23,7 @@ export default function Register() {
         messageApi.open({
           key,
           type: 'success',
-          content: 'register successful',   // 注册成功!
+          content: 'Register successfully!',
           duration: 1,
         });
       }else{
@@ -45,7 +45,7 @@ export default function Register() {
     <div className=' containerLogin'>
       {contextHolder}
       <div className='register box'>
-        <h2>Register Here</h2>
+        <h1>Create your account</h1>
         <Form
           name="basic"
           labelCol={{
@@ -65,12 +65,12 @@ export default function Register() {
           autoComplete="off"
         >
           <Form.Item
-            label="username"      // 用户名
+            label="Username"
             name="username"
             rules={[
               {
                 required: true,
-                message: 'please enter username',   // 请输入用户名
+                message: 'Enter your username',
               },
             ]}
           >
@@ -78,12 +78,12 @@ export default function Register() {
           </Form.Item>
 
           <Form.Item
-            label="password"     // 密码
+            label="Password"
             name="password"
             rules={[
               {
                 required: true,
-                message: 'please enter password',    // 请输入密码
+                message: 'Enter your password',
               },
             ]}
           >
@@ -97,17 +97,12 @@ export default function Register() {
             }}
           >
             <Button type="primary" htmlType="submit" className="z_btn">
-              Register
+              <bold>CONTINUE</bold>
             </Button>
           </Form.Item>
           <Form.Item
-            style={{ margin: "0px!important" }}
-            wrapperCol={{
-              offset: 20,
-              span: 4,
-            }}
-          >
-            <Link to={"/user/login"}>LoginPage</Link>
+          >Have an account?
+            <Link to={"/user/login"}> Sign in</Link>
           </Form.Item>
         </Form>
       </div>
