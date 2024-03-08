@@ -120,7 +120,7 @@ export default function MsgComponent(props) {
           {
             props.data.chatData.username ?
               <>
-                <p>用户：{props.data.chatData.username}</p>
+                <p>User：{props.data.chatData.username}</p>
                 <Popconfirm
                   title="Delete the friend?"    // 删除好友？
                   onConfirm={deleteUser}
@@ -128,7 +128,7 @@ export default function MsgComponent(props) {
                   okText="OK"       // 确认
                   cancelText="Undo"  // 取消
                 >
-                  <Button type="primary" danger>    // 删除好友
+                  <Button type="primary" danger>
                     DeleteFriend
                   </Button>
                 </Popconfirm>
@@ -156,7 +156,7 @@ export default function MsgComponent(props) {
             })
           )
         ) : (
-          <>Lets Chat! </>  // 跟好友聊聊吧！
+          <div style={{ color: '#ffffff' }}>Lets Chat!</div>  // 跟好友聊聊吧！
         )}
       </div>
       <SendComponent sendMsg={sendMsg} data={props.data} />

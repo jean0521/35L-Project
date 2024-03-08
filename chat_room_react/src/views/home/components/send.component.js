@@ -101,15 +101,15 @@ export default function SendComponent(props) {
     return (
         <>
             <div className="tool">
-                <Button type="primary" size="small" onClick={() => { setOpen(true) }}>   // 查询聊天记录
-                    Search Message History
+                <Button type="primary" size="small" onClick={() => { setOpen(true) }}>
+                  Search Message History
                 </Button>
             </div>
             <div className="msgSend">
                 <input
                     type="text"
                     className="msgText"
-                    placeholder="Please enter messages"  // 请输入要发送的内容
+                    placeholder="Enter messages here"  // 请输入要发送的内容
                     value={msgText}
                     onChange={(e) => {
                         setMsgText(e.target.value);
@@ -141,8 +141,8 @@ export default function SendComponent(props) {
                             setDisabled(true);
                         }}
                     // end
-                    >  // 聊天记录
-                        Message History
+                    >
+                      Message History
                     </div>
                 }
                 open={open}

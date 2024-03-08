@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { Button, message, Form, Input } from "antd";
+import { Button, message, Form, Input, Tooltip } from "antd";
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import "./style.css";
 import { Link,useNavigate } from "react-router-dom";
 import ChatContext from "../../context/index";
+import bruinImage from "./bruin-image.png"
 
 export default function UserLogin() {
   const { socket } = useContext(ChatContext);
@@ -52,14 +54,18 @@ export default function UserLogin() {
     <div className=" containerLogin">
       {contextHolder}
       <div className="login box">
-        <h1>Sign in</h1>
+        <img src={bruinImage} id="bruin-logo" alt="Bruin logo" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <h2>Sign in</h2>
+        <br></br>
+        <p>to continue to Bruin Talk!</p>
+        <h1></h1>
         <Form
           name="basic"
-          labelCol={{
-            span: 4,
-          }}
           wrapperCol={{
-            span: 20,
+            span: 24,
           }}
           style={{
             maxWidth: 600,
@@ -72,7 +78,6 @@ export default function UserLogin() {
           autoComplete="off"
         >
           <Form.Item
-            label="Username"
             name="username"
             rules={[
               {
@@ -81,11 +86,22 @@ export default function UserLogin() {
               },
             ]}
           >
-            <Input />
+            <Input
+              placeholder="Your username here"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              suffix={
+                <Tooltip title="Forget ur username? Think about it!">
+                  <InfoCircleOutlined
+                    style={{
+                      color: 'rgba(0,0,0,.45)',
+                    }}
+                  />
+                </Tooltip>
+              }
+            />
           </Form.Item>
 
           <Form.Item
-            label="Password"
             name="password"
             rules={[
               {
@@ -94,7 +110,9 @@ export default function UserLogin() {
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password 
+              placeholder="Your password here"
+            />
           </Form.Item>
           <Form.Item
             style={{ margin: "0px!important" }}
@@ -110,7 +128,7 @@ export default function UserLogin() {
           <Form.Item
             style={{ margin: "0px!important" }}
           >No account? 
-            <Link to={"/user/register"}> Sign up</Link>
+            <Link to={"/user/register"} className="link"> Sign up now</Link>
           </Form.Item>
         </Form>
       </div>

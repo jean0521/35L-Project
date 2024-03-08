@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Checkbox, message, Form, Input } from 'antd';
+import { Button, message, Form, Input, Tooltip, Checkbox } from "antd";
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import './style.css'
 import api from "../../http/api";
-
+import bruinImage from "./bruin-image.png"
 
 export default function Register() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -45,14 +46,18 @@ export default function Register() {
     <div className=' containerLogin'>
       {contextHolder}
       <div className='register box'>
-        <h1>Create your account</h1>
+        <img src={bruinImage} id="bruin-logo" alt="Bruin logo" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <h2>Create your account</h2>
+        <br></br>
+        <p>and dive into Bruin Talk!</p>
+        <h1></h1>
         <Form
           name="basic"
-          labelCol={{
-            span: 4,
-          }}
           wrapperCol={{
-            span: 20,
+            span: 24,
           }}
           style={{
             maxWidth: 600,
@@ -65,7 +70,6 @@ export default function Register() {
           autoComplete="off"
         >
           <Form.Item
-            label="Username"
             name="username"
             rules={[
               {
@@ -74,20 +78,33 @@ export default function Register() {
               },
             ]}
           >
-            <Input />
+            <Input
+              placeholder="How do Iaddress you?"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              suffix={
+                <Tooltip title="Think about it!">
+                  <InfoCircleOutlined
+                    style={{
+                      color: 'rgba(0,0,0,.45)',
+                    }}
+                  />
+                </Tooltip>
+              }
+            />
           </Form.Item>
 
           <Form.Item
-            label="Password"
             name="password"
             rules={[
               {
                 required: true,
-                message: 'Enter your password',
+                message: 'Secret here!',
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password 
+              placeholder="Your password here"
+            />
           </Form.Item>
           <Form.Item
             style={{ margin: "0px!important" }}
@@ -101,8 +118,9 @@ export default function Register() {
             </Button>
           </Form.Item>
           <Form.Item
-          >Have an account?
-            <Link to={"/user/login"}> Sign in</Link>
+          >
+            Have an account?
+            <Link to={"/user/login"} className="link"> Log in here</Link>
           </Form.Item>
         </Form>
       </div>

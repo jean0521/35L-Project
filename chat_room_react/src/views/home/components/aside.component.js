@@ -177,7 +177,7 @@ export default function AsideComponent(props) {
       {contextHolder}
       <div>
         <Search
-          placeholder="Enter the username to search"    //输入用户名进行搜索
+          placeholder="Find ur friends"    //输入用户名进行搜索
           value={friendsText}
           onChange={(e) => {
             setfriendsText(e.target.value);
@@ -188,7 +188,7 @@ export default function AsideComponent(props) {
         />
       </div>
       <List
-        locale={{ emptyText: "My friend is on the way" }}     //好友正在前来的路上
+        locale={{ emptyText: "Ur friend is on the way"}}     //好友正在前来的路上
         itemLayout="horizontal"
         dataSource={friends}
         renderItem={(item, index) => (
@@ -209,12 +209,12 @@ export default function AsideComponent(props) {
               description={
                 item.types === "online" ? (
                   <>
-                    <span style={{ ...style }}>Online</span>    //在线
+                    <span style={{ ...style }}>Online</span>
                     <Badge status="success" />
                   </>
                 ) : (
                   <>
-                    <span style={{ ...style }}>Offline</span>    //离线
+                    <span style={{ ...style }}>Offline</span>
                     <Badge status="error" />
                   </>
                 )
@@ -244,7 +244,7 @@ export default function AsideComponent(props) {
             onBlur={() => {}}
             // end
           >
-            {status === "0" ? "User Information" : "Search List"}    //"用户信息" : "搜索列表"
+            {status === "0" ? "User Information" : "Search List"}
           </div>
         }
         open={open}
@@ -290,7 +290,7 @@ export default function AsideComponent(props) {
                     okText="OK"         //确认
                     cancelText="Cancel"     //取消
                   >
-                    <Button type="primary" size="small">   //申请好友
+                    <Button type="primary" size="small">
                       Friend Request         
                     </Button>
                   </Popconfirm>

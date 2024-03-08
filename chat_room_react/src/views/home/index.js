@@ -6,6 +6,7 @@ import AsideComponent from "./components/aside.component";
 import MsgComponent from "./components/msg.component";
 import ChatContext from "../../context/index";
 import { Button ,message,Modal,List} from "antd";
+import uclaImage from './ucla.png';
 
 export default function Home(props) {
   const { socket, chatData, setChatData } = useContext(ChatContext);
@@ -80,6 +81,7 @@ const agreeFriendApply = ({type,data}) =>{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          backgroundColor: "transparent"
         }}
       >
         <div
@@ -90,18 +92,19 @@ const agreeFriendApply = ({type,data}) =>{
             alignItems: "center",
           }}
         >
+          <img src={uclaImage} id="ucla-logo" alt="ucla-logo" />
           <h1 style={{ padding: 0 }}>
-            Current User:        //当前用户
+            User ID:&nbsp;
             {window.localStorage.getItem("user")
               ? JSON.parse(window.localStorage.getItem("user")).username || ""
-              : "Please Login"}  // 请前往登录
+              : "Please Login"}
           </h1>
           <div>
             <Button type="dashed" onClick={()=>{friendApply()}} style={{ marginRight: 20 }}>
-              Friend Request //好友申请
+              Friend Request
             </Button>
             <Button type="primary" onClick={()=>{loginOut()}} >
-              Logout //退出登录
+              Logout
             </Button>
           </div>
         </div>
@@ -129,7 +132,7 @@ const agreeFriendApply = ({type,data}) =>{
             }}
             // end
           >
-            Friend Request //好友申请
+            Friend Request
           </div>
         }
         open={open}
@@ -168,10 +171,10 @@ const agreeFriendApply = ({type,data}) =>{
                 description={
                   <>
                   <Button type="primary" size="small" onClick={()=>{agreeFriendApply({type:1,data:item})}}>
-                     Request Approved //通过好友
+                      Request Approved
                     </Button>
                     <Button type="primary" danger size="small" style={{ marginLeft: 20 }}  onClick={()=>{agreeFriendApply({type:2,data:item})}}>
-                      Request Denied //拒绝好友
+                      Request Denied
                     </Button>
                     </>
                 }

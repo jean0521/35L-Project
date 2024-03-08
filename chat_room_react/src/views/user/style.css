@@ -1,14 +1,19 @@
 .containerLogin {
-  width: 100vw;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
-  background-color: #5ab0ff;
+  background-image: url("./la.jpg");
   position: relative;
 }
 .containerLogin .box {
-  width: 600px;
+  width: 400px;
   padding: 40px;
-  background: #fff;
-  border-radius: 5px;
+  background: linear-gradient(
+    to bottom,
+    rgba(112, 179, 196, 0.1),
+    rgba(255, 199, 164, 0.1)
+  );
+  border-radius: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,10 +26,18 @@
 .z_btn {
   width: 100%;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #5ab0ff;
   color: #fff;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
+}
+
+#bruin-logo {
+  width: 10%;
+}
+
+.link {
+  color: #ffffff;
 }
