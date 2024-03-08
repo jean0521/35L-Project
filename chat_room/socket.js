@@ -56,7 +56,57 @@ const {
           });
           console.error("Error during login:", error);
         }
-      });
+    });
+
+    // 处理用户登录
+    socket.on("login", async (userData, callback) => {
+        try {
+            let islogin = false;
+            const user_s = await finUser({
+              fields: {
+                username: userData?.username,
+                password: userData?.password,
+              },
+            });
+            connectedUsers.forEach((value, key) => {
+              console.log(`Key: ${key}, Value: ${value}`);
+              if (user_s.data.id === value) {
+                islogin = true
+              }
+            });
+            if (islogin) {
+              return callback({ code: -1, msg: 'Already Logged in!' });
+            }
+            const loggedInUser = await login({
+              fields: {
+                username: userData?.username,
+                password: userData?.password,
+              },
+            });
+            if (loggedInUser.code === 0) {
+              io.emit("getFriendsList", { code: 0, msg: 'updata' });
+              await setUserData({
+                fields: {
+                  userId: loggedInUser.data.id,
+                  updateFields: {
+                    types: 'online',
+                    socketId: socket.id
+                  }
+                },
+              });
+              connectedUsers.set(socket.id, loggedInUser.data.id);
+              //io.emit("setUserData", {code:0,msg:'updata'});
+            }
+            callback({ ...loggedInUser, socketId: socket.id });
+          } catch (error) {
+            callback({
+              code: -1,
+              msg: "Error during login:",
+              error,
+            });
+            console.error("Error during login:", error);
+          }
+        });
     
     
     });
