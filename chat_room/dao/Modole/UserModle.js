@@ -177,3 +177,59 @@ UserModel.getFriendsList = async function (data) {
     };
   }
 };
+// 获取好友申请列表
+UserModel.friendApply = async function (data) {
+  try {
+    const user = await Friendship.findAll({
+      where: { friendId: data.userId, status: "pending", status_is: '1', },
+    });
+    // 返回好友列表
+    return { code: 0, msg: "成功", success: true, friends: user || [] };
+  } catch (error) {
+    console.error("Error getting friends:", error);
+    return {
+      code: -1,
+      msg: "失败",
+      success: false,
+      message: "Error getting friends. " + error.message,
+    };
+  }
+};
+// 删除好友
+UserModel.delFriend = async function (data) {
+  console.log(data);
+  const { userId, friendId } = data;
+  try {
+    // 使用 Sequelize 自动生成的 getFriends 方法获取好友列表
+    await Friendship.destroy({
+      where: {
+        [Op.or]: [
+          { userId: userId, friendId: friendId },
+        ],
+      },
+    });
+    // 返回好友列表
+    return { code: 0, msg: "删除成功", success: true };
+  } catch (error) {
+    console.log(error);
+    // 处理错误，返回错误消息或其他信息
+    return { success: -1, msg: "删除失败", message: "Error deleting friend." };
+  }
+};
+// 查询好友
+UserModel.findFriend = async function (data) {
+    // 使用 Sequelize 自动生成的 getFriends 方法获取好友列表
+    const userlist = await UserModel.findAll({
+      where: {
+        status: '1',
+        username: {
+          [Op.like]: '%' + data.username + '%',
+        }
+      },
+      attributes: ['id', 'username'], // 选择要返回的用户字段
+      raw: true, // 将查询结果直接返回为 JSON 对象
+    });
+
+    // 返回好友列表
+    return { code: 0, msg: "成功", success: true, data: userlist };
+};
