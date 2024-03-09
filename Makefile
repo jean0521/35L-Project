@@ -14,8 +14,10 @@ run: check_npm close
 close:
 	@if [ $$(lsof -ti :3000 | wc -l) -ge 1 ]; then \
 		kill -9 $$(lsof -ti :3000); \
-	else \
-		echo "No processes found!"; \
+	fi
+
+	@if [ $$(lsof -ti :4001 | wc -l) -ge 1 ]; then \
+		kill -9 $$(lsof -ti :4001); \
 	fi
 
 # check if npm is installed
