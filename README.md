@@ -72,6 +72,8 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 **Friend List**: You can check your contacts in the friend list.
 
+**Online/Offline Status**: In your friend list, you can also check their Online/Offline Statue.
+
 **Deleting Friends**: You can delete your current friends.
 
 ## Demo
