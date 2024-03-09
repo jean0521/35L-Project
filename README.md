@@ -62,7 +62,7 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 **Register**: If you do not have an account yet, you can register for an account.
 
-**Log In**: You can log in with your username and password.
+**Log In**: Once you got an account, you can log in with your username and password.
 
 **Adding Friends**: After you log in, you can add other users as your friends.
 
