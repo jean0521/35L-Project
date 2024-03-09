@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import './style.css'
 import api from "../../http/api";
 import bruinImage from "./bruin-image.png"
+import laDay from './la-day.jpg';
+import laNight from './la-night.jpg';
+import { useTheme } from '../../context/ThemeContext'; 
+import dayTheme from './day-theme.png'; 
+import nightTheme from './night-theme.png'; 
 
 export default function Register() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -42,10 +47,33 @@ export default function Register() {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  const { isNight, toggleTheme } = useTheme();
+
   return (
-    <div className=' containerLogin'>
+    <div 
+      className="containerLogin"
+      style={{
+        backgroundImage: `url(${isNight ? laNight : laDay})`, // Step 4: Use state to change backgroundImage
+      }}
+    >
+      <div className="top-right-button">
+        <button onClick={toggleTheme} className="circle-button">
+          <img src={isNight ? nightTheme : dayTheme} alt="Change theme" />
+        </button>
+      </div>
       {contextHolder}
-      <div className='register box'>
+      <div 
+        className='register box'
+        style={isNight ? {
+          background: '#ffffff'
+          } 
+          : {
+             background: 'linear-gradient(to bottom, rgba(112, 179, 196, 0.2), rgba(255, 199, 164, 0.2))'
+          }
+        }
+      
+      >
         <img src={bruinImage} id="bruin-logo" alt="Bruin logo" />
         <br></br>
         <br></br>
@@ -114,13 +142,18 @@ export default function Register() {
             }}
           >
             <Button type="primary" htmlType="submit" className="z_btn">
-              <bold>CONTINUE</bold>
+              <strong>CONTINUE</strong>
             </Button>
           </Form.Item>
           <Form.Item
           >
             Have an account?
-            <Link to={"/user/login"} className="link"> Log in here</Link>
+            <Link 
+              to={"/user/login"} 
+              style={{ 
+                color: isNight ? 'blue' : 'white' 
+              }}
+            > Log in here</Link>
           </Form.Item>
         </Form>
       </div>

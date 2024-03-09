@@ -2,17 +2,11 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
-  background-image: url("./la.jpg");
   position: relative;
 }
 .containerLogin .box {
-  width: 400px;
-  padding: 40px;
-  background: linear-gradient(
-    to bottom,
-    rgba(112, 179, 196, 0.1),
-    rgba(255, 199, 164, 0.1)
-  );
+  width: 390px;
+  padding: 45px;
   border-radius: 15px;
   position: absolute;
   top: 50%;
@@ -21,7 +15,7 @@
 }
 .containerLogin .box h1 {
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .z_btn {
   width: 100%;
@@ -29,7 +23,7 @@
   border-radius: 10px;
   background: #5ab0ff;
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
   cursor: pointer;
 }
@@ -40,4 +34,34 @@
 
 .link {
   color: #ffffff;
+}
+
+.top-right-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px; /* Adjust the margin as needed */
+}
+
+.circle-button {
+  border: none;
+  outline: none;
+  width: 50px; /* Adjust based on the size you want */
+  height: 50px; /* Make sure this is the same as width to get a circle */
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent; /* Adjust or remove as needed */
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-button img {
+  width: 100%; /* Make the image fill the button */
+  height: auto; /* Keep the image aspect ratio */
+  border-radius: 50%; /* Make the image circular */
 }
