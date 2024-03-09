@@ -6,8 +6,8 @@ Our group is excited to present the development of a full-stack web chat applica
 
 ## Table of Contents
 
-- [Three Basic Features](#basic-features)
-- [Five Distinct Features](#four-distinct-features)
+- [Three Basic Features](#three-basic-features)
+- [Five Distinct Features](#five-distinct-features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
