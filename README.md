@@ -62,7 +62,7 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 **Register**: If you do not have an account yet, you can register for an account.
 
-P.S. At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
+* P.S. At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
 
 **Real-Time Chat**: Once logged in, you can start chatting with your friends. Messages are sent and received in real-time.
 
