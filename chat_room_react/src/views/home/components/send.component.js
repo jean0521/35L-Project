@@ -3,6 +3,18 @@ import Draggable from "react-draggable";
 import { List,  Modal, Button, Input } from "antd";
 const { Search } = Input;
 
+// Define formatDate outside of the MsgComponent
+const formatDate = (dateString) => {
+    try {
+      // Attempt to format the date using the specified time zone
+      return new Date(dateString).toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour12: false });
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      // Fallback to the default system time zone in case of error
+      return new Date(dateString).toLocaleTimeString('en-US', { hour12: false });
+    }
+  }
+
 export default function SendComponent(props) {
     const [msgText, setMsgText] = useState("");
     const [disabled, setDisabled] = useState(true);
@@ -183,8 +195,8 @@ export default function SendComponent(props) {
                     renderItem={(item, index) => (
                         <List.Item>
                             <List.Item.Meta  // 我说：+ 说
-                                title={item.userId === props.data.chatData.user.id ? 'I say: ' + item.content : (props.data.chatData.username + 'say: ' + item.content)}
-                                description={'Sending time：' + new Date(item.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/Los Angeles', hour12: false })}
+                                title={item.userId === props.data.chatData.user.id ? 'I say: ' + item.content : (props.data.chatData.username + ' says: ' + item.content)}
+                                description={'Sending time：' + formatDate(item.createdAt)}
                             />
                         </List.Item>
                     )}

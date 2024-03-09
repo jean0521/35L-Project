@@ -1,6 +1,19 @@
 import React, { useEffect, useState, useRef } from "react";
-import { message, Button, Popconfirm } from "antd";
+import { message, Button, Popconfirm, Flex } from "antd";
 import SendComponent from './send.component'
+
+// Define formatDate outside of the MsgComponent
+const formatDate = (dateString) => {
+  try {
+    // Attempt to format the date using the specified time zone
+    return new Date(dateString).toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour12: false });
+  } catch (error) {
+    console.error('Error formatting date:', error);
+    // Fallback to the default system time zone in case of error
+    return new Date(dateString).toLocaleTimeString('en-US', { hour12: false });
+  }
+}
+
 export default function MsgComponent(props) {
   const messagesRef = useRef();
   const [messageApi, contextHolder] = message.useMessage();
@@ -20,7 +33,9 @@ export default function MsgComponent(props) {
         },
       ]);
       setTimeout(() => {
-        messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+        if (messagesRef.current) {
+          messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+        }
       }, 200)
     };
     if (props.data.chatData.friend) {
@@ -42,7 +57,9 @@ export default function MsgComponent(props) {
         if (res.code === 0) {
           setMsgList(res.data)
           setTimeout(() => {
-            messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+            if (messagesRef.current) {
+              messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+            }
           }, 200)
         }
         console.log("Received message:", res);
@@ -105,7 +122,9 @@ export default function MsgComponent(props) {
       ]);
       if (msg.add === 1) {
         setTimeout(() => {
-          messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+          if (messagesRef.current) {
+            messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+          }
         }, 200)
       }
     }
@@ -120,7 +139,11 @@ export default function MsgComponent(props) {
           {
             props.data.chatData.username ?
               <>
-                <p>User：{props.data.chatData.username}</p>
+                <Flex>
+                  <Button type="primary">
+                    User: {props.data.chatData.username}
+                  </Button>
+                </Flex>
                 <Popconfirm
                   title="Delete the friend?"    // 删除好友？
                   onConfirm={deleteUser}
@@ -129,7 +152,7 @@ export default function MsgComponent(props) {
                   cancelText="Undo"  // 取消
                 >
                   <Button type="primary" danger>
-                    DeleteFriend
+                    Delete Friend
                   </Button>
                 </Popconfirm>
               </>
@@ -145,12 +168,12 @@ export default function MsgComponent(props) {
               return item.userId !== props.data.chatData.user.id ? (
                 <div className="msgxt msgx" key={index + "you-msg"}>
                   <div className="msgName">{item.content}</div>
-                  <div className="msgTime">{item?.add === 1 ? item.createdAt : new Date(item.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/Los Angeles', hour12: false })}</div>
+                  <div className="msgTime">{item?.add === 1 ? item.createdAt : formatDate(item.createdAt)}</div>
                 </div>
               ) : (
                 <div className="msgxy msgx" key={index + "my-msg"}>
                   <div className="msgName">{item.content}</div>
-                  <div className="msgTime">{item?.add === 1 ? item.createdAt : new Date(item.createdAt).toLocaleTimeString('en-US', { timeZone: 'America/Los Angeles', hour12: false })}</div>
+                  <div className="msgTime">{item?.add === 1 ? item.createdAt : formatDate(item.createdAt)}</div>
                 </div>
               );
             })
