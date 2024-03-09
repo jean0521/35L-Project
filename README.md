@@ -2,7 +2,7 @@
 Our group is excited to present the development of a full-stack web chat application. This project focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
 
 
-**Date**: XXXXX, 2024
+**Date**: Jan - Mar, 2024
 
 ## Table of Contents
 
