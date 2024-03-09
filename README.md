@@ -6,8 +6,8 @@ Our group is excited to present the development of a full-stack web chat applica
 
 ## Table of Contents
 
-- [Basic Features](#basic-features)
-- [Four Distinct Features](#four-distinct-features)
+- [Three Basic Features](#basic-features)
+- [Five Distinct Features](#four-distinct-features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -55,7 +55,6 @@ To start the application, simply execute the command:
 Open one web browser and go to http://localhost:3000 to access the chat application.
 
 Open the other web browser and go to http://localhost:3000 to access the chat application.
-
 
 ## Usage
 
