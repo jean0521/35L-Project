@@ -26,15 +26,17 @@ Our group is excited to present the development of a full-stack web chat applica
 
 **User Authentication**: Implement a secure registration and login system to ensure the privacy and authentication of user data.
 
-## Four Distinct Features
+## Five Distinct Features
 
-**1. Displaying a friend list**
+**1. Customize User-page Theme**: Provide a theme customization feature for the User Login and Register Page, including alternation of Light Model and Dark Model.
 
-**2. Adding Friends**
+**2. Displaying a friend list**
 
-**3. Deleting Friends**
+**3. Adding Friends**
 
-**4. Displaying online/offline status of users**
+**4. Deleting Friends**
+
+**5. Displaying online/offline status of users**
 
 ## Getting Started
 
