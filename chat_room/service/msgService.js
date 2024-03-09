@@ -15,7 +15,23 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
+        data: error.message || "Unexpected error",
+      });
+    }
+  },
+  async getChatHistory(ctx, next) {
+    try {
+      const { userId,friendId } = ctx.fields;
+      const result = await getChatHistory({ userId,friendId  });
+      return {
+        ...result,
+      };
+    } catch (error) {
+        console.log(error)
+      return({
+        code: 300,
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
@@ -31,7 +47,7 @@ module.exports = {
         console.log(error)
       return({
         code: 300,
-        msg: "失败",
+        msg: "Fail",
         data: error.message || "Unexpected error",
       });
     }
