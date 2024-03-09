@@ -62,7 +62,7 @@ export default function UserLogin() {
     <div 
       className="containerLogin"
       style={{
-        backgroundImage: `url(${isNight ? laNight : laDay})`, // Step 4: Use state to change backgroundImage
+        backgroundImage: `url(${isNight ? laNight : laDay})`,
       }}
     >
       <div className="top-right-button">
