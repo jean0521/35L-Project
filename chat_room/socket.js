@@ -125,6 +125,27 @@ module.exports = function socketIo(io) {
         console.error("Error during login:", error);
       }
     });
+    // 处理用户发送消息
+    socket.on("sendMessage", async (data, callback) => {
+      try {
+        const { from, to, content, sortId, socketId } = data;
+        const rs = await isFindFriend({fields:{userId: from, friendId: to}});
+        // 保存消息到数据库
+        const msg = await createMsg({ fields: { userId: from, friendId: to, content, sortId } });
+        callback(rs);
+        if (msg.code === 0 && rs.code === 0 ) {
+          // 发送消息给目标用户
+          const targetSocket = io.sockets.sockets.get(rs.data.Friends[0].socketId);
+          if (targetSocket) {
+            targetSocket.emit("receiveMessage", { from, content });
+          }
+        }
+      } catch (error) {
+        console.error("Error during sendMessage:", error);
+      }
+    });
+
+    
 
     
   });
