@@ -58,19 +58,19 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 ## Usage
 
-**Log In**: Please use your username and password to log in.
+**Customize User-page Theme**: At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
 
 **Register**: If you do not have an account yet, you can register for an account.
 
-**Customize User-page Theme**: At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
+**Log In**: You can log in with your username and password.
 
-**Real-Time Chat**: Once logged in, you can start chatting with your friends. Messages are sent and received in real-time.
+**Adding Friends**: After you log in, you can add other users as your friends.
+
+**Real-Time Chat**: Click on the users you want to chat with, and start chatting with them. Messages are sent and received in real-time.
 
 **Message History**: Your chat history will be available for reference, and you can scroll through previous messages.
 
-**Friend List**: A friend list is displayed. 
-
-**Adding Friends**: You can add other users as your friends.
+**Friend List**: You can check your contacts in the friend list.
 
 **Deleting Friends**: You can delete your current friends.
 
