@@ -44,31 +44,16 @@ Our group is excited to present the development of a full-stack web chat applica
 
 	git clone https://github.com/your-username/web-chat-application.git
 
-### Installation
-
-	cd frontend
-	npm install
-	
-	cd backend
-	npm install
-
 ### Running the Application
 
-To start the application, follow these steps:
+To start the application, simply execute the command:
 
-Start the frontend
-
- 	cd ../frontend
- 	npm start
-  
-Start the backend
-
- 	cd ../backend
- 	npm start
+	make run
 
 Open one web browser and go to http://localhost:3000 to access the chat application.
 
 Open the other web browser and go to http://localhost:3000 to access the chat application.
+
 
 ## Usage
 
