@@ -218,6 +218,7 @@ UserModel.delFriend = async function (data) {
 };
 // 查询好友
 UserModel.findFriend = async function (data) {
+  try {
     // 使用 Sequelize 自动生成的 getFriends 方法获取好友列表
     const userlist = await UserModel.findAll({
       where: {
@@ -232,4 +233,56 @@ UserModel.findFriend = async function (data) {
 
     // 返回好友列表
     return { code: 0, msg: "成功", success: true, data: userlist };
+  } catch (error) {
+    console.log(error);
+    // 处理错误，返回错误消息或其他信息
+    return { success: -1, msg: "失败", message: "Error getting friends." };
+  }
+};
+// 验证好友
+UserModel.verifyFriends = async function (data) {
+  try {
+    // 查看是否已存在好友关系记录
+    const existingFriendship = await Friendship.findOne({
+      where: {
+        [Op.or]: [
+          { userId: data.userId, friendId: data.friendId },
+          { userId: data.friendId, friendId: data.userId },
+        ],
+      },
+    });
+
+    if (existingFriendship) {
+      // 已存在好友关系记录，可以处理一些逻辑，例如提示用户已经是好友
+      return {
+        code: -1,
+        msg: "",
+        success: false,
+        message: "Users are already friends.",
+      };
+    }
+
+    // 创建好友关系记录，设置状态为 "pending"
+    await Friendship.create({
+      userId: data.userId,
+      friendId: data.friendId,
+      status: "pending",
+    });
+
+    // 返回成功的消息或其他信息
+    return {
+      code: -1,
+      msg: "成功",
+      success: true,
+      message: "Friend request sent successfully.",
+    };
+  } catch (error) {
+    // 处理错误，返回错误消息或其他信息
+    return {
+      code: -1,
+      msg: "",
+      success: false,
+      message: "Error sending friend request.",
+    };
+  }
 };
