@@ -45,7 +45,7 @@
 
 	Clone the Repository:
 
-	git clone https://github.com/your-username/web-chat-application.git
+	git clone https://github.com/your-username/35l-project.git
 
 ### Running the Application
 
