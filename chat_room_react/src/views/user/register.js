@@ -107,7 +107,7 @@ export default function Register() {
             ]}
           >
             <Input
-              placeholder="How do Iaddress you?"
+              placeholder="How do I address you?"
               prefix={<UserOutlined className="site-form-item-icon" />}
               suffix={
                 <Tooltip title="Think about it!">
