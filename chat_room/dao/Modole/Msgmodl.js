@@ -49,7 +49,7 @@ MsgModel.createMsg = async function (data) {
     // 返回成功的消息或其他信息
     return {
       code: 0,
-      msg: "Successful",
+      msg: "Success",
       success: true,
       message: "added successfully.",
     };
@@ -57,7 +57,7 @@ MsgModel.createMsg = async function (data) {
     // 处理错误，返回错误消息或其他信息
     return {
       code: -1,
-      msg: "Failure",
+      msg: "Fail",
       success: false,
       message: "Error adding.",
     };
@@ -78,14 +78,14 @@ MsgModel.getChatHistory = async function (data) {
 
     return {
       code: 0,
-      msg: "Successful",
+      msg: "Success",
       success: true,
       data: chatHistory,
     };
   } catch (error) {
     return {
       code: -1,
-      msg: "Failure",
+      msg: "Fail",
       success: false,
       message: "Error fetching chat history." + JSON.stringify(error),  
     };
@@ -110,14 +110,14 @@ MsgModel.searchChatHistory = async function (data) {
 
     return {
       code: 0,
-      msg: "Successful",
+      msg: "Success",
       success: true,
       data: chatHistory,
     };
   } catch (error) {
     return {
       code: -1,
-      msg: "Failure",
+      msg: "Fail",
       success: false,
       message: "Error fetching chat history." + JSON.stringify(error),  
     };
