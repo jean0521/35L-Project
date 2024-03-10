@@ -58,7 +58,7 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 ## Usage
 
-**Customize User-page Theme**: At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
+**Customizing User-page Theme**: At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
 
 **Register**: If you do not have an account yet, you can register for an account.
 
