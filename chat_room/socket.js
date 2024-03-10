@@ -133,13 +133,47 @@ module.exports = function socketIo(io) {
         // 保存消息到数据库
         const msg = await createMsg({ fields: { userId: from, friendId: to, content, sortId } });
         callback(rs);
-        if (msg.code === 0 && rs.code === 0 ) {
-          // 发送消息给目标用户
-          const targetSocket = io.sockets.sockets.get(rs.data.Friends[0].socketId);
-          if (targetSocket) {
-            targetSocket.emit("receiveMessage", { from, content });
+
+
+        
+      } catch (error) {
+        console.error("Error during sendMessage:", error);
+      }
+    });
+    // 添加好友 
+    socket.on("addFriends", async (data, callback) => {
+      try {
+        console.log(data)
+        // 保存消息到数据库
+        if (data.userId === data.friendId) {
+          return callback({ code: -1, msg: '您不能加自己为好友' });
+        }
+        const rs = await isFindFriend({fields:{userId: data.friendId, friendId: data.userId}});
+        console.log(rs)
+        const msg = await addFriend({ fields: {...data,status: rs.code === 0 ? 'accepted' : 'pending' } });
+        if (msg.code === 0 && rs.code !== 0) {
+          // io.emit("getFriendsList", { code: 0, msg: '申请成功' });
+          const r = await UserModel.findOne({ where: { id: data.friendId } })
+          if (r.dataValues.socketId) {
+            // 发送消息给目标用户
+            const targetSocket = io.sockets.sockets.get(r.dataValues.socketId);
+            if (targetSocket) {
+              targetSocket.emit("addFriendsMessage", { content: { ...data, code: 0 } });
+            }
+          }
+        }else if(msg.code === 0 && rs.code === 0){
+          io.emit("getFriendsList", { code: 0, msg: '成功' });
+        }else if(msg.code === 0){
+          const r = await UserModel.findOne({ where: { id: data.friendId } })
+          if (r.dataValues.socketId) {
+            // 发送消息给目标用户
+            const targetSocket = io.sockets.sockets.get(r.dataValues.socketId);
+            if (targetSocket) {
+              targetSocket.emit("addFriendsMessage", { content: { ...data, code: 0 } });
+            }
           }
         }
+        callback(msg);
       } catch (error) {
         console.error("Error during sendMessage:", error);
       }
