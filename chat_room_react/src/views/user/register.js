@@ -131,7 +131,7 @@ export default function Register() {
             ]}
           >
             <Input.Password 
-              placeholder="Your password here"
+              placeholder="Back up your password!"
             />
           </Form.Item>
           <Form.Item
