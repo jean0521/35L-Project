@@ -1,4 +1,4 @@
-# <img src="./bruin-image.png" width=20px>  Bruin Talk
+# <img src="./bruin-image.png" width=30px height=30px>  Bruin Talk
 *Bruin Talk* a **MERN** Stack full-stack web chatting application. This application focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
 
 
