@@ -51,11 +51,36 @@
 
 To start the application, simply execute the command:
 
+ 	cd path/to/this/repository
+
 	make run
 
 Open one web browser and go to http://localhost:3000 to access the chat application.
 
 Open the other web browser and go to http://localhost:3000 to access the chat application.
+
+### Manual Operation (in case)
+
+This application requires `npm` to get started, and they are integrated into 
+`make run` above. However, there are also some options to do manually just in case:
+
+To install `npm`:
+
+	make install_npm
+
+ Or:
+
+  	make check_npm
+
+where the latter would check if `npm` is installed, and install it for you if not
+
+To install packages for app to run:
+
+	make install_package
+
+ To clean processes occupying ports:
+
+ 	make close
 
 ## Usage
 
