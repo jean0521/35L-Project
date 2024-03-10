@@ -1,10 +1,10 @@
 // 链接数据库
 module.exports.config = {
     mysql: {
-        host: '127.0.0.1',
+        host: '123.56.26.168',
         port: 3306,
         user: 'chatRoom',
-        password: '123456',
+        password: '8MiyePPYASfRNsKG',
         database: 'chatroom'
     },
     jwtc:{
