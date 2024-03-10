@@ -28,7 +28,7 @@ Our group is excited to present the development of a full-stack web chat applica
 
 ## Five Distinct Features
 
-**1. Customize User-page Theme**: Provide a theme customization feature for the User Login and Register Page, including alternation between Light Mode and Dark Mode.
+**1. Customizing User-page Theme**: Provide a theme customization feature for the User Login and Register Page, including alternation between Light Mode and Dark Mode.
 
 **2. Displaying a friend list**
 
