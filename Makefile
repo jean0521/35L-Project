@@ -9,15 +9,26 @@ run: check_npm close
 		$(MAKE) run; \
 	fi
 
-# terminate the application at port 3000
-# to avoid issues
+# terminate the application
 close:
+	@if [ $$(lsof -ti :3001 | wc -l) -ge 1 ]; then \
+		kill -9 $$(lsof -ti :3001); \
+		echo "React terminated!"; \
+	fi
+
+	@if [ $$(lsof -ti :3306 | wc -l) -ge 1 ]; then \
+		kill -9 $$(lsof -ti :3306); \
+		echo "MySQL terminated!"; \
+	fi
+
 	@if [ $$(lsof -ti :3000 | wc -l) -ge 1 ]; then \
 		kill -9 $$(lsof -ti :3000); \
+		echo "Express terminated!"; \
 	fi
 
 	@if [ $$(lsof -ti :4001 | wc -l) -ge 1 ]; then \
 		kill -9 $$(lsof -ti :4001); \
+		echo "WebSocket terminated!"; \
 	fi
 
 # check if npm is installed
