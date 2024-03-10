@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
-const UserModel = require("./UserModle");
+const UserModel = require("./UserModel");
 const MsgModel = sequelize.define(
   "Msg",
   {
@@ -20,7 +20,7 @@ const MsgModel = sequelize.define(
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // 假设已经定义了一个User模型
+      // 假设你已经定义了一个User模型
       references: {
         model: "Users", // 根据实际的用户模型名称进行更新
         key: "id",
@@ -124,5 +124,5 @@ MsgModel.searchChatHistory = async function (data) {
   }
 };
 
-// 现在，可以使用MsgModel与数据库中的'Msg'表进行交互
+// 现在，你可以使用MsgModel与数据库中的'Msg'表进行交互
 module.exports = MsgModel;

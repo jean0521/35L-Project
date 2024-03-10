@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
-const MsgModl = require("./Modole/MsgModl");
+const MsgModel = require("./Modole/MsgModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { config } = require("../config/index");
@@ -8,35 +8,35 @@ const { config } = require("../config/index");
 module.exports = {
   // 添加聊天记录
   async createMsg(user) {
-    let result = await MsgModl.createMsg(user);
+    let result = await MsgModel.createMsg(user);
     return result;
   },
   // 发信息
   async sendMsg(user) {
     try {
-      await MsgModl.create(user);
+      await MsgModel.create(user);
       return {
         code: 0,
-        msg: "Message sent",    // 发送成功！
+        msg: "Message sent",
       };
     } catch (error) {
       return {
         code: -1,
-        msg: "Send failed",    // 发送失败！
+        msg: "Send failed",
         data: error,
       };
     }
   },
   // 获取聊天信息 
   getChatHistory(user) {
-    return MsgModl.getChatHistory(user);
+    return MsgModel.getChatHistory(user);
   },
   searchChatHistory(user) {
-    return MsgModl.searchChatHistory(user);
+    return MsgModel.searchChatHistory(user);
   },
   // 返回id
   async GetMsgId(data) {
-    let result = await MsgModl.findAndCountAll({
+    let result = await MsgModel.findAndCountAll({
       order: [["sortId", "asc"]],
       where: {
         [Op.or]: [
@@ -48,12 +48,12 @@ module.exports = {
     if (!result) {
       return {
         code: -1,
-        msg: "Search failed",   // 查询失败！
+        msg: "Search failed",
       };
     } else {
       return {
         code: 0,
-        msg: "Search completed",     // 查询成功！
+        msg: "Search completed",
         data: result,
       };
     }

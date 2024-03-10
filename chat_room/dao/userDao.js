@@ -1,4 +1,5 @@
-const UserModel = require("./Modole/UserModle");
+// 上面的代码我在其他页面怎么调用
+const UserModel = require("./Modole/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { config } = require("../config/index");
@@ -14,12 +15,12 @@ module.exports = {
     if (info !== null) {
       return {
         code: -1,
-        msg: "User already exists",   // 该用户已存在！
+        msg: "User already exists",
       };
     }
-    var salt = bcrypt.genSaltSync(10); // 设置加密等级，如果不设置默认为10，最高为10
+    var salt = bcrypt.genSaltSync(10); //设置加密等级，如果不设置默认为10，最高为10
     let password = user.password;
-    var hash = bcrypt.hashSync(password, salt); // 将获取
+    var hash = bcrypt.hashSync(password, salt); //将获取
     await UserModel.create({
       username: user.username,
       password: hash,
@@ -27,7 +28,7 @@ module.exports = {
     });
     return {
       code: 0,
-      msg: "Register completed",    // 注册成功！ 
+      msg: "Register completed",
     };
   },
   // 登录
@@ -40,7 +41,7 @@ module.exports = {
     if (!user) {
       return {
         code: -1,
-        msg: "Incorrect username or password",   // 用户名或密码错误！
+        msg: "Incorrect username or password",
       };
     }
     const isPasswordValid = bcrypt.compareSync(
@@ -50,7 +51,7 @@ module.exports = {
     if (!isPasswordValid) {
       return {
         code: -1,
-        msg: "Incorrect username or password",    // 用户名或密码错误！
+        msg: "Incorrect username or password",
       };
     }
     const authorization = jwt.sign(
@@ -62,7 +63,7 @@ module.exports = {
     );
     return {
       code: 0,
-      msg: "Login successfully",     // 登录成功！
+      msg: "Login successfully",
       data: {
         authorization,
         id: user.id,
@@ -80,12 +81,12 @@ module.exports = {
     if (!user) {
       return {
         code: -1,
-        msg: "Search failed",     // 查询失败
+        msg: "Search failed",
       };
     }
     return {
       code: 0,
-      msg: "Search completed",    // 查询成功！
+      msg: "Search completed",
       data: {
         id: user.id,
         username: user.username,
@@ -114,12 +115,12 @@ module.exports = {
     if (!result) {
       return {
         code: -1,
-        msg: "Search failed",     // 查询失败
+        msg: "Search failed",
       };
     } else {
       return {
         code: 0,
-        msg: "Search completed",    // 查询成功！
+        msg: "Search completed",
         data: result,
       };
     }

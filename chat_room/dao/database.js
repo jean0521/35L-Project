@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
       acquire: 30000, // 获取连接超时时间为 30000 毫秒
       idle: 10000 // 连接空闲超时时间为 10000 毫秒
     },
-    timezone: '-08:00', // 设置时区为西八区
+    timezone: '+08:00', // 设置时区为东八区
     logging: false, // 是否开启日志输出
     operatorsAliases: true, // 是否使用别名操作符
     define: { // 模型定义配置

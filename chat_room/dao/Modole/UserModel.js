@@ -123,7 +123,7 @@ UserModel.addFriend = async function (data) {
     // 返回成功的消息或其他信息
     return {
       code: 0,
-      msg: "申请成功",
+      msg: "Request Succeeded",
       success: true,
       message: "Friend added successfully.",
     };
@@ -133,7 +133,7 @@ UserModel.addFriend = async function (data) {
     return {
       code: -1,
     // 申请失败
-      msg: "Request Failure",
+      msg: "Request Failed",
       success: false,
       message: "Error adding friend.",
     };
@@ -165,7 +165,7 @@ UserModel.getFriendsList = async function (data) {
     });
 
     // 返回好友列表
-    return { code: 0, msg: "成功", success: true, friends: user?.Friends || [] };
+    return { code: 0, msg: "Success", success: true, friends: user?.Friends || [] };
   } catch (error) {
     console.error("Error getting friends:", error);
     return {
@@ -184,7 +184,7 @@ UserModel.friendApply = async function (data) {
       where: { friendId: data.userId, status: "pending", status_is: '1', },
     });
     // 返回好友列表
-    return { code: 0, msg: "成功", success: true, friends: user || [] };
+    return { code: 0, msg: "Success", success: true, friends: user || [] };
   } catch (error) {
     console.error("Error getting friends:", error);
     return {
@@ -209,11 +209,11 @@ UserModel.delFriend = async function (data) {
       },
     });
     // 返回好友列表
-    return { code: 0, msg: "删除成功", success: true };
+    return { code: 0, msg: "Deleted Successfully", success: true };
   } catch (error) {
     console.log(error);
     // 处理错误，返回错误消息或其他信息
-    return { success: -1, msg: "删除失败", message: "Error deleting friend." };
+    return { success: -1, msg: "Delete Failed", message: "Error deleting friend." };
   }
 };
 // 查询好友
@@ -232,11 +232,11 @@ UserModel.findFriend = async function (data) {
     });
 
     // 返回好友列表
-    return { code: 0, msg: "成功", success: true, data: userlist };
+    return { code: 0, msg: "Success", success: true, data: userlist };
   } catch (error) {
     console.log(error);
     // 处理错误，返回错误消息或其他信息
-    return { success: -1, msg: "失败", message: "Error getting friends." };
+    return { success: -1, msg: "Fail", message: "Error getting friends." };
   }
 };
 // 验证好友
@@ -272,9 +272,9 @@ UserModel.verifyFriends = async function (data) {
     // 返回成功的消息或其他信息
     return {
       code: -1,
-      msg: "成功",
+      msg: "Success",
       success: true,
-      message: "Friend request sent successfully.",
+      message: "Friend request sent",
     };
   } catch (error) {
     // 处理错误，返回错误消息或其他信息
@@ -282,7 +282,7 @@ UserModel.verifyFriends = async function (data) {
       code: -1,
       msg: "",
       success: false,
-      message: "Error sending friend request.",
+      message: "Error sending friend request",
     };
   }
 };
@@ -302,7 +302,7 @@ UserModel.setUserData = async function (data) {
         code: -1,
         msg: "",
         success: false,
-        message: "未找到该用户",
+        message: "User not found",
       };
     }
 
@@ -312,9 +312,9 @@ UserModel.setUserData = async function (data) {
     // 返回成功的消息或其他信息
     return {
       code: 0,
-      msg: "成功",
+      msg: "Success",
       success: true,
-      message: "成功",
+      message: "Success",
     };
   } catch (error) {
     // 处理错误，返回错误消息或其他信息
@@ -345,9 +345,9 @@ UserModel.agreeFriendApply = async function (data) {
     // 返回成功的消息或其他信息
     return {
       code: 0,
-      msg: "成功",
+      msg: "Success",
       success: true,
-      message: "成功",
+      message: "Success",
     };
   } catch (error) {
     // 处理错误，返回错误消息或其他信息
@@ -389,14 +389,14 @@ UserModel.isFindFriend = async function (data) {
       ],
     });
     if (!user) {
-      return { code: -1, msg: "失败", success: false, message: "未找到该用户" };
+      return { code: -1, msg: "Fail", success: false, message: "User not found" };
     }
     // 返回好友列表
-    return { code: 0, msg: "成功", success: true, data: user };
+    return { code: 0, msg: "Success", success: true, data: user };
   } catch (error) {
     console.log(error);
     // 处理错误，返回错误消息或其他信息
-    return { success: -1, msg: "失败", message: "Error getting friends." };
+    return { success: -1, msg: "Fail", message: "Error getting friends" };
   }
 };
 
