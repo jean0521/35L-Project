@@ -14,7 +14,7 @@ module.exports = {
     if (info !== null) {
       return {
         code: -1,
-        msg: "The user is already exist",   // 该用户已存在！
+        msg: "User already exists",   // 该用户已存在！
       };
     }
     var salt = bcrypt.genSaltSync(10); // 设置加密等级，如果不设置默认为10，最高为10
@@ -27,7 +27,7 @@ module.exports = {
     });
     return {
       code: 0,
-      msg: "register complete",    // 注册成功！ 
+      msg: "Register completed",    // 注册成功！ 
     };
   },
   // 登录
@@ -40,7 +40,7 @@ module.exports = {
     if (!user) {
       return {
         code: -1,
-        msg: "incorrect username or password",   // 用户名或密码错误！
+        msg: "Incorrect username or password",   // 用户名或密码错误！
       };
     }
     const isPasswordValid = bcrypt.compareSync(
@@ -50,7 +50,7 @@ module.exports = {
     if (!isPasswordValid) {
       return {
         code: -1,
-        msg: "incorrect username or password",    // 用户名或密码错误！
+        msg: "Incorrect username or password",    // 用户名或密码错误！
       };
     }
     const authorization = jwt.sign(
@@ -62,7 +62,7 @@ module.exports = {
     );
     return {
       code: 0,
-      msg: "login successfully",     // 登录成功！
+      msg: "Login successfully",     // 登录成功！
       data: {
         authorization,
         id: user.id,
@@ -80,12 +80,12 @@ module.exports = {
     if (!user) {
       return {
         code: -1,
-        msg: "search fails",     // 查询失败
+        msg: "Search failed",     // 查询失败
       };
     }
     return {
       code: 0,
-      msg: "search complete",    // 查询成功！
+      msg: "Search completed",    // 查询成功！
       data: {
         id: user.id,
         username: user.username,
@@ -114,12 +114,12 @@ module.exports = {
     if (!result) {
       return {
         code: -1,
-        msg: "search fails",     // 查询失败
+        msg: "Search failed",     // 查询失败
       };
     } else {
       return {
         code: 0,
-        msg: "search complete",    // 查询成功！
+        msg: "Search completed",    // 查询成功！
         data: result,
       };
     }

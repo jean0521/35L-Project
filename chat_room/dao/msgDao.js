@@ -17,12 +17,12 @@ module.exports = {
       await MsgModl.create(user);
       return {
         code: 0,
-        msg: "message sent",    // 发送成功！
+        msg: "Message sent",    // 发送成功！
       };
     } catch (error) {
       return {
         code: -1,
-        msg: "sent fails",    // 发送失败！
+        msg: "Send failed",    // 发送失败！
         data: error,
       };
     }
@@ -48,12 +48,12 @@ module.exports = {
     if (!result) {
       return {
         code: -1,
-        msg: "search fails",   // 查询失败！
+        msg: "Search failed",   // 查询失败！
       };
     } else {
       return {
         code: 0,
-        msg: "search complete",     // 查询成功！
+        msg: "Search completed",     // 查询成功！
         data: result,
       };
     }

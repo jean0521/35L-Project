@@ -26,10 +26,10 @@ const sequelize = new Sequelize(
 
 sequelize.sync({ force: false })
   .then(() => {
-    console.log('Sequelize Model Synchronization successful');
+    console.log('Sequelize Model Synchronization Succeeded');
   })
   .catch((error) => {
-    console.error('Sequelize Model Synchronization Fail: ', error);
+    console.error('Sequelize Model Synchronization Failed: ', error);
   });
 
 module.exports = sequelize;
