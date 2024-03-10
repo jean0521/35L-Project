@@ -102,6 +102,8 @@ To install packages for app to run:
 
 **Deleting Friends**: You can delete your current friends.
 
+**Log Out**: You want to login another account or exit the app by clicking the Logout button.
+
 ## Demo
 
 Demo
