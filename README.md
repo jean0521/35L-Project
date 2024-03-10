@@ -45,7 +45,7 @@
 
 	Clone the Repository:
 
-	git clone https://github.com/your-username/35l-project.git
+	git clone https://github.com/realyangweng/35L-Project.git
 
 ### Running the Application
 
