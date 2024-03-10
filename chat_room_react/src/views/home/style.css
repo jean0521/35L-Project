@@ -8,8 +8,8 @@
 aside {
   background: linear-gradient(
     to bottom,
-    rgba(112, 179, 196, 0.5),
-    rgba(255, 199, 164, 0.5)
+    rgba(207, 222, 229, 0.95),
+    rgba(205, 216, 218, 0.35)
   );
   border-radius: 10px;
   height: calc(100vh - 200px);
@@ -35,8 +35,8 @@ aside .active {
   justify-content: space-between;
   background: linear-gradient(
     to bottom,
-    rgba(112, 179, 196, 0.5),
-    rgba(255, 199, 164, 0.5)
+    rgba(207, 222, 229, 0.95),
+    rgba(205, 216, 218, 0.35)
   );
   border-radius: 10px;
   padding: 10px !important;
@@ -48,11 +48,6 @@ aside .active {
   border-radius: 10px;
   padding: 10px !important;
   padding-top: 0px !important;
-  background: linear-gradient(
-    to bottom,
-    rgb(255, 255, 255, 0),
-    rgba(255, 199, 164, 0)
-  );
   overflow-y: scroll;
   position: relative;
 }
@@ -65,10 +60,9 @@ aside .active {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid rgb(255, 255, 255, 0);
+  border-bottom: 1px;
   padding-bottom: 5px;
   margin-bottom: 5px;
-  background-color: rgb(255, 255, 255, 0);
   width: 100%;
   z-index: 99;
   padding-top: 10px !important;

@@ -69,7 +69,7 @@ export default function Register() {
           background: '#ffffff'
           } 
           : {
-             background: 'linear-gradient(to bottom, rgba(112, 179, 196, 0.2), rgba(255, 199, 164, 0.2))'
+            background: 'linear-gradient(to bottom, rgba(112, 179, 196, 0.20), rgba(255, 199, 164, 0.25))'
           }
         }
       
