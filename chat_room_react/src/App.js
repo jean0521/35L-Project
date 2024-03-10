@@ -6,6 +6,7 @@ import routesList from "./router/route";
 import ChatContext from "./context/index";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -53,13 +54,15 @@ function App() {
 
   return (
     // 路由
-    <ChatContext.Provider value={{ socket, chatData, setChatData }}>
-      {socket && (
-        <Router>
-          <RouterList data={routesList} />
-        </Router>
-      )}
-    </ChatContext.Provider>
+    <ThemeProvider>
+      <ChatContext.Provider value={{ socket, chatData, setChatData }}>
+        {socket && (
+          <Router>
+            <RouterList data={routesList} />
+          </Router>
+        )}
+      </ChatContext.Provider>
+    </ThemeProvider>
   );
 }
 

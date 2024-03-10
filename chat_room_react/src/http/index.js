@@ -42,3 +42,14 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+
+// 导出封装后的请求方法
+export default {
+  get(url, params = {}) {
+    return instance.get(url, {params});
+  },
+  post(url, data = {}) {
+    return instance.post(url, data);
+  },
+};
