@@ -182,9 +182,129 @@ module.exports = function socketIo(io) {
         console.error("Error during sendMessage:", error);
       }
     });
+    // 删除好友
+    socket.on("delFriends", async (data, callback) => {
+      try {
+        // 保存消息到数据库
+        const msg = await delFriend({ fields: data });
+        console.log(msg)
+        if (msg.code === 0) {
+          io.emit("getFriendsList", { code: 0, msg: 'Delete successfully' });
+          // 发送消息给目标用户
+          // const targetSocket = io.sockets.sockets.get(data.socketId);
+          // if (targetSocket) {
+          //   targetSocket.emit("addFriendsMessage", { from:data.userId, content: '删除成功' });
+          // }
+        }
+        callback(msg);
+      } catch (error) {
+        console.error("Error during sendMessage:", error);
+      }
+    });
+    // 获取聊天记录
+    socket.on("getChatHistory", async (data, callback) => {
+      try {
+        const chatRecord = await getChatHistory({ fields: data });
+        callback(chatRecord);
+      } catch (error) {
+        callback({
+          code: -1,
+          msg: "Error during login:",
+          error,
+        });
+        console.error("Error during login:", error);
+      }
+    });
+    // 获取好友申请
+    socket.on("friendApply", async (data, callback) => {
+      try {
+        console.log(data)
+        const chatRecord = await friendApply({ fields: data });
+        callback(chatRecord);
+      } catch (error) {
+        callback({
+          code: -1,
+          msg: "Error during :",
+          error,
+        });
+        console.error("Error during :", error);
+      }
+    });
+    // 修改好友申请
+    socket.on("agreeFriendApply", async (data, callback) => {
+      try {
+        console.log(data)
+        const result = await agreeFriendApply(data);
+        callback(result);
+        if(result.code===0){
+          io.emit("getFriendsList", { code: 0, msg: 'updata' });
+        }
+      } catch (error) {
+        callback({
+          code: -1,
+          msg: "Error during login:",
+          error,
+        });
+      }
+    })
+    // 搜索好友聊天记录
+    socket.on("searchChatHistory", async (data, callback) => {
+      try {
+        const chatRecord = await searchChatHistory({ fields: data });
+        callback(chatRecord);
+      } catch (error) {
+        callback({
+          code: -1,
+          msg: "Error during login:",
+          error,
+        });
+        console.error("Error during login:", error);
+      }
+    });
+    // 处理用户断开连接
+    socket.on("disconnect", async (data) => {
+      try {
+        console.log("User disconnected");
+        const disconnectUser = connectedUsers.get(socket.id);
+        console.log(disconnectUser)
+        connectedUsers.delete(socket.id);
+        await setUserData({
+          fields: {
+            userId: disconnectUser,
+            updateFields: {
+              types: 'offline',
+              socketId: ''
+            }
+          },
+        });
+        io.emit("getFriendsList", { code: 0, msg: 'updata' });
+      } catch (error) {
 
-    
+      }
+      // io.emit("setUserData", {id:disconnectUser,types:'offline'});
+    });
+    socket.on("disconnect_s", async (data) => {
+      try {
+        console.log("User disconnected");
+        io.emit("getFriendsList", { code: 0, msg: 'updata' });
+        const disconnectUser = connectedUsers.get(socket.id);
+        console.log(connectedUsers)
+        connectedUsers.delete(socket.id);
+        await setUserData({
+          fields: {
+            userId: disconnectUser,
+            updateFields: {
+              types: 'offline',
+              socketId: ''
+            }
+          },
+        });
+        //io.emit("getFriendsList", {code:0,msg:'updata'});
+      } catch (error) {
 
+      }
+      // io.emit("setUserData", {id:disconnectUser,types:'offline'});
+    });
     
   });
 }
