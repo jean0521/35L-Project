@@ -1,4 +1,7 @@
-chat_room/node_modules/
 chat_room_react/node_modules/
+chat_room_react/yarn.lock
+chat_room_react/package-lock.json
 
+chat_room/node_modules/
 chat_room/yarn.lock
+chat_room/package-lock.json
