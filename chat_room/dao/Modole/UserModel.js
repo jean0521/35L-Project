@@ -286,3 +286,118 @@ UserModel.verifyFriends = async function (data) {
     };
   }
 };
+// 修改信息
+UserModel.setUserData = async function (data) {
+  try {
+    // 查找对应 userId 的用户记录
+    const user = await UserModel.findOne({
+      where: {
+        id: data.userId,
+        status: '1',
+      },
+    });
+    if (!user) {
+      // 如果找不到对应的用户记录，返回相应的错误消息
+      return {
+        code: -1,
+        msg: "",
+        success: false,
+        message: "未找到该用户",
+      };
+    }
+
+    // 更新用户记录的字段
+    await user.update(data.updateFields);
+
+    // 返回成功的消息或其他信息
+    return {
+      code: 0,
+      msg: "成功",
+      success: true,
+      message: "成功",
+    };
+  } catch (error) {
+    // 处理错误，返回错误消息或其他信息
+    return {
+      code: -1,
+      msg: "",
+      success: false,
+      message: JSON.stringify(error),
+    };
+  }
+};
+// 好友
+UserModel.agreeFriendApply = async function (data) {
+  try {
+    // 查找对应 userId 的用户记录
+    await Friendship.update({
+      status: data.updateFields.status
+    }, {
+      where: {
+        id: data.id // 条件，这里id为1的记录会被更新
+      }
+    });
+    if(data.updateFields.status === 'accepted'){
+      await Friendship.create({marks:data.updateFields.marks,
+        status:data.updateFields.status,
+        notes:data.updateFields.notes,userId:data.updateFields.friendId,friendId:data.updateFields.userId});
+    }
+    // 返回成功的消息或其他信息
+    return {
+      code: 0,
+      msg: "成功",
+      success: true,
+      message: "成功",
+    };
+  } catch (error) {
+    // 处理错误，返回错误消息或其他信息
+    return {
+      code: -1,
+      msg: "",
+      success: false,
+      message: JSON.stringify(error),
+    };
+  }
+};
+// 查询是否好友
+UserModel.isFindFriend = async function (data) {
+  try {
+    // 使用 Sequelize 自动生成的 getFriends 方法获取好友列表
+    // const user = await Friendship.findOne({
+    //   where: {
+    //     userId: data.userId,
+    //     friendId:data.friendId * 1
+    //   },
+    // });
+    const user = await UserModel.findOne({
+      where: { id: data.userId },
+      include: [
+        {
+          model: UserModel,
+          as: "Friends",
+          attributes: ["id", "username", "types", "socketId"],
+          through: {
+            // attributes: [], // 如果不需要返回 Friendship 表的字段，设置为空数组
+          },
+          where: {
+            "$Friends.Friendship.status$": "accepted",
+            "$Friends.Friendship.status_is$": 1,
+            "$Friends.Friendship.userId$": data.userId,
+            "$Friends.Friendship.friendId$": data.friendId * 1
+          },
+        },
+      ],
+    });
+    if (!user) {
+      return { code: -1, msg: "失败", success: false, message: "未找到该用户" };
+    }
+    // 返回好友列表
+    return { code: 0, msg: "成功", success: true, data: user };
+  } catch (error) {
+    console.log(error);
+    // 处理错误，返回错误消息或其他信息
+    return { success: -1, msg: "失败", message: "Error getting friends." };
+  }
+};
+
+module.exports = UserModel;
