@@ -11,8 +11,8 @@
 - [Five Distinct Features](#five-distinct-features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
   - [Running the Application](#running-the-application)
+  - [Manual Operation](#manual-operation)
 - [Usage](#usage)
 - [Demo](#demo)
 - [Contributing](#contributing)
@@ -59,7 +59,7 @@ Open one web browser and go to http://localhost:3000 to access the chat applicat
 
 Open the other web browser and go to http://localhost:3000 to access the chat application.
 
-### Manual Operation (in case)
+### Manual Operation
 
 This application requires `npm` to get started, and they are integrated into 
 `make run` above. However, there are also some options to do manually just in case:
