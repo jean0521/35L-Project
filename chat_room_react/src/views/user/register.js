@@ -110,7 +110,7 @@ export default function Register() {
               placeholder="How do I address you?"
               prefix={<UserOutlined className="site-form-item-icon" />}
               suffix={
-                <Tooltip title="Think about it!">
+                <Tooltip title="Call your name!">
                   <InfoCircleOutlined
                     style={{
                       color: 'rgba(0,0,0,.45)',
