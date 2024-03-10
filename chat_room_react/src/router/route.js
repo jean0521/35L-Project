@@ -9,7 +9,7 @@ const routesList = [
         path: '/home/:id?',
         element: <Home />,
         meta:{
-            title: 'Homepage',   //首页
+            title: 'Bruin Talk',   //首页
             isLogin: true
         },
         children: []
@@ -18,7 +18,7 @@ const routesList = [
         path: '/Chat',
         element: <Chat />,
         meta:{
-            title: 'Homepage',   //首页
+            title: 'Bruin Talk',   //首页
             isLogin: true
         },
         children: []
@@ -27,14 +27,14 @@ const routesList = [
         path: '/',
         element: <Navigate to="/home" />,
         meta:{
-            title: 'Homepage',   //首页
+            title: 'Bruin Talk',   //首页
             isLogin: false
         },
     },
     {
         path: '/user/login',
         meta:{
-            title: 'User-Login',   //用户-登录
+            title: 'Bruin Talk - Login',   //用户-登录
             isLogin: false
         },
         element: <UserLogin />
@@ -42,7 +42,7 @@ const routesList = [
     {
         path: '/user/register',
         meta:{
-            title: 'User-Register',   //用户-注册
+            title: 'Bruin Talk - Register',   //用户-注册
             isLogin: false
         },
         element: <UserRegister />
