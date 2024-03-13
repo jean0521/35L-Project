@@ -15,9 +15,7 @@
   - [Manual Operation](#manual-operation)
 - [Usage](#usage)
 - [Demo](#demo)
-- [Contributing](#contributing)
 - [License](#license)
-
 
 ## Three Basic Features
 
@@ -106,10 +104,7 @@ To install packages for app to run:
 
 ## Demo
 
-Demo
-
-## Contributing
-
+For a demonstration of the project, please visit https://www.youtube.com/watch?v=a8Cp1spRwHQ
 
 ## License
 
