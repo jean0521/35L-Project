@@ -64,15 +64,15 @@
 
   	The default connection details for a local MySQL setup are usually:
    	Host: localhost or 127.0.0.1
-    	Port: 3306 (default MySQL port)
-     	User: root (or any other user you create for the database)
-      	Password: The password set during installation or for the new user you created.
-       	Database: The name of the database you created (e.g., mydatabase).
+    Port: 3306 (default MySQL port)
+    User: root (or any other user you create for the database)
+    Password: The password set during installation or for the new user you created.
+    Database: The name of the database you created (e.g., mydatabase).
 
  	Configure the App to Use the Local Database
   	Locate chat_room/config/index.js file and update the host, port, user, password, and database name values to match your local MySQL setup.
 
-    	After adjusting the configuration, you should be able to run the app locally. 
+After adjusting the configuration, you should be able to run the app locally. 
 
 ### Running the Application
 
