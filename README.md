@@ -15,6 +15,8 @@
 - [Five Distinct Features](#five-distinct-features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [Install Dependencies](#install-dependencies)
+  - [MySQL Database Localization](#mySQL-database-localization)
   - [Running the Application](#running-the-application)
   - [Manual Operation](#manual-operation)
 - [Usage](#usage)
@@ -61,14 +63,14 @@
   	To create a new database, you can use the SQL command: CREATE DATABASE mydatabase; — replacing mydatabase with your preferred database name.
 
   	The default connection details for a local MySQL setup are usually:
-   		Host: localhost or 127.0.0.1
-    		Port: 3306 (default MySQL port)
-     		User: root (or any other user you create for the database)
-      		Password: The password set during installation or for the new user you created.
-       		Database: The name of the database you created (e.g., mydatabase).
+   	Host: localhost or 127.0.0.1
+    	Port: 3306 (default MySQL port)
+     	User: root (or any other user you create for the database)
+      	Password: The password set during installation or for the new user you created.
+       	Database: The name of the database you created (e.g., mydatabase).
 
  	Configure the App to Use the Local Database
-  		Locate chat_room/config/index.js file and update the host, port, user, password, and database name values to match your local MySQL setup.
+  	Locate chat_room/config/index.js file and update the host, port, user, password, and database name values to match your local MySQL setup.
 
     	After adjusting the configuration, you should be able to run the app locally. 
 
