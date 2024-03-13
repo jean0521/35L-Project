@@ -78,7 +78,7 @@ The default connection details for a local MySQL setup are usually:
  	Port: 3306 (default MySQL port)
   	User: root (or any other user you create for the database)
    	Password: The password set during installation or for the new user you created.
-    	Database: The name of the database you created (e.g., mydatabase).
+    Database: The name of the database you created (e.g., mydatabase).
 
 Configure the App to Use the Local Database. Locate 
 
