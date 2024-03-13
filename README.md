@@ -53,20 +53,27 @@
 
 ### Install Dependencies
 
- 	Windows or Mac: Download from the official Node.js website and install it: https://nodejs.org/en
+Windows or Mac: Download from the official Node.js website and install it: 
+
+	https://nodejs.org/en
 	
 ### MySQL Database Localization
 
 Visit the official MySQL downloads page and select the version suitable for your operating system:
+
 	https://www.mysql.com/downloads/
  
 After installation, you can access the MySQL CLI by typing 
+
 	mysql -u root -p 
+ 
 in your terminal or command prompt and entering the root password set during installation.
 To create a new database, you can use the SQL command: 
+
 	CREATE DATABASE mydatabase; — replacing mydatabase with your preferred database name.
 
 The default connection details for a local MySQL setup are usually:
+
 	Host: localhost or 127.0.0.1
  	Port: 3306 (default MySQL port)
   	User: root (or any other user you create for the database)
@@ -74,7 +81,9 @@ The default connection details for a local MySQL setup are usually:
     	Database: The name of the database you created (e.g., mydatabase).
 
 Configure the App to Use the Local Database. Locate 
+
 	chat_room/config/index.js 
+ 
 and update the host, port, user, password, and database name values to match your local MySQL setup.
 
 After adjusting the configuration, you should be able to run the app locally. 
