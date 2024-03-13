@@ -108,7 +108,7 @@ To install packages for app to run:
 
 ## Demo
 
-For a demonstration of the project, please visit https://www.youtube.com/watch?v=a8Cp1spRwHQ
+For a demonstration of the project, please visit <a href="https://www.youtube.com/watch?v=a8Cp1spRwHQ">here</a>.
 
 ## License
 
