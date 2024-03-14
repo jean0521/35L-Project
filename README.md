@@ -9,6 +9,8 @@
 
 **Date**: Jan - Mar, 2024
 
+**Link**: Link to this public repo: https://github.com/realyangweng/35L-Project
+
 ## Table of Contents
 
 - [Three Basic Features](#three-basic-features)
