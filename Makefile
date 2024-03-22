@@ -1,6 +1,6 @@
 # run the web app
 run: check_npm close
-	@if [ -d "./chat_room/node_modules" ] && [ -d "./chat_room_react/node_modules" ]; then \
+	@if [ -d "./backend/node_modules" ] && [ -d "./frontend/node_modules" ]; then \
 		chmod +x ./config/run.sh; \
 		./config/run.sh; \
 		chmod -x ./config/run.sh; \

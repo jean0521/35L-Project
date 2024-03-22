@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the back-end folder
-cd ./chat_room || { echo "Error: Backend folder ("char_room") not found!"; exit 1; }
+cd ./backend || { echo "Error: Backend folder ("backend") not found!"; exit 1; }
 
 # Run npm start for the back end  in the background
 npm start &
@@ -13,8 +13,8 @@ if [ $? -ne 0]; then
 fi
 
 # Navigate to the front-end folder
-cd ../chat_room_react ||
-    { echo "Error: Frontend folder ("chat_room_react") not found"; exit 1; }
+cd ../frontend ||
+    { echo "Error: Frontend folder ("frontend") not found"; exit 1; }
 
 # Run npm start for the front end in the foreground
 npm start

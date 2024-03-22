@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Installing dependencies for backend..."
-cd ./chat_room && npm install
+cd ./backend && npm install
 echo "Installing dependencies for frontend..."
-cd ../chat_room_react && npm install
+cd ../frontend && npm install
 
 exit 0
